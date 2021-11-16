@@ -79,7 +79,7 @@ var Ripple = React.createClass({ displayName: "Ripple",
 
     to(dom, 2 * timeAnim, {
       attr: {
-        r: 32 },
+        r: 128 },
 
       delay: timeAnim / 3,
       ease: Power0.easeNone }).
@@ -122,7 +122,7 @@ var Ripple = React.createClass({ displayName: "Ripple",
               classie.remove(page, "orange");
               TweenMax.set(greenDom, {
                 attr: {
-                  r: 32 } });
+                  r: 128 } });
 
 
             },
@@ -130,7 +130,7 @@ var Ripple = React.createClass({ displayName: "Ripple",
 
           to(dom, timeAnim / 2, {
             attr: {
-              r: 32 },
+              r: 128 },
 
             ease: Power3.easeOut });
 
@@ -141,8 +141,8 @@ var Ripple = React.createClass({ displayName: "Ripple",
   render: function () {
     return /*#__PURE__*/(
       React.createElement("svg", { height: "1", width: "1" }, /*#__PURE__*/
-      React.createElement("circle", { ref: "greenripple", id: "green_ripple", cx: "0", cy: "0", r: "32" }), /*#__PURE__*/
-      React.createElement("circle", { ref: "ripple", id: "white_ripple", cx: "0", cy: "0", r: "32" })));
+      React.createElement("circle", { ref: "greenripple", id: "green_ripple", cx: "0", cy: "0", r: "128" }), /*#__PURE__*/
+      React.createElement("circle", { ref: "ripple", id: "white_ripple", cx: "0", cy: "0", r: "128" })));
 
 
   } });
