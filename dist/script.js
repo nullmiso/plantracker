@@ -186,7 +186,7 @@ var Button = React.createClass({ displayName: "Button",
         ease: Power3.easeOut },
       "-=" + timeAnim / 3).
       to(self.state, 2 * timeAnim, {
-        progress: 14,
+        progress: 0,
         ease: Power0.easeNone,
         onUpdate: function (tween) {
           self.setState({
@@ -222,7 +222,7 @@ var Button = React.createClass({ displayName: "Button",
           self.setState({
             action: "play",
             point: "two",
-            progress: 0,
+            progress: 14,
             event: "" });
 
         },
@@ -242,7 +242,7 @@ var Button = React.createClass({ displayName: "Button",
           self.setState({
             action: "paused",
             point: "one",
-            progress: 0,
+            progress: 14,
             event: "" });
 
         } });
@@ -253,7 +253,7 @@ var Button = React.createClass({ displayName: "Button",
     return {
       action: "paused",
       point: "",
-      progress: 0,
+      progress: 14,
       event: "" };
 
   },
