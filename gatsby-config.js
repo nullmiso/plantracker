@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    siteUrl: "https://www.yourdomain.tld",
-    title: "plantracker",
+    siteUrl: "https://plantracker.gatsbyjs.io",
+    title: "PlanTracker",
   },
   plugins: [],
 };
