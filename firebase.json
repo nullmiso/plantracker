@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "plantracker-ucsb",
     "public": "public",
     "ignore": [
       "firebase.json",
