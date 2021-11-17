@@ -12,7 +12,8 @@
     "start": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "postinstall": "rm -rf node_modules/gatsby-plugin-gatsby-cloud && echo see https://github.com/gatsbyjs/gatsby/issues/33042",
   },
   "dependencies": {
     "gatsby": "^4.1.3",
