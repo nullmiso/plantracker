@@ -7,15 +7,21 @@
 /*----------  VARIABLES  ----------*/
 html,
 body {
+  display: flex;
+  flex-direction: column;
+  position: relative;
   margin: 0;
-  padding: 0;
+  min-height: 100%;
 }
 
 body {
+  
   font-family: 'Roboto', sans-serif;
   font-size: 100%;
   color: #1f2e3e;
   position: absolute;
+  margin: 0;
+  padding: 0;
   width: 100%;
   height: 100%;
 }
@@ -30,13 +36,13 @@ body {
   justify-content: center;
   -webkit-align-items: center;
   align-items: center;
-  background-color: #2196f3;
+  background-color: #f18b77;
 }
 #page.orange {
-  background-color: #ff5722;
+  background-color: #da7f8f;
 }
 #page .material_button {
-  position: relative;
+  position: absolute;
   cursor: pointer;
   width: 64px;
   height: 64px;
@@ -97,7 +103,7 @@ body {
   fill: #fff;
 }
 #page .material_button svg circle#green_ripple {
-  fill: #8bc34a;
+  fill: #8e7f7f;
 }
 #page .material_button .progress {
   font-family: 'Roboto Mono', sans-serif;
@@ -110,6 +116,25 @@ body {
   z-index: 9;
 }
 
+header {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  flex: none;
+  text-align: center;
+  padding: 16px 0;
+  color: #FFFFFF;
+  font-size: 24px;
+}
+
+main {
+  padding-top: 16px;
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-bottom: 64px;
+
+}
+
 footer {
   position: absolute;
   width: 100%;
@@ -118,8 +143,8 @@ footer {
   text-align: center;
   padding: 16px 0;
   color: #FFFFFF;
-  font-size: 14px;
+  font-size: 12px;
 }
 footer a {
-  color: #1e59af;
+  color: #FFFFFF;
 }

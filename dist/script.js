@@ -37,7 +37,7 @@ Number.prototype.map = function (in_min, in_max, out_min, out_max) {
 =================================*/
 var doc = document,
 page = doc.getElementById('page'),
-timeAnim = 1.25;
+timeAnim = 0.75;
 
 
 /*========================================
@@ -79,7 +79,7 @@ var Ripple = React.createClass({ displayName: "Ripple",
 
     to(dom, 2 * timeAnim, {
       attr: {
-        r: 32 },
+        r: 256 },
 
       delay: timeAnim / 3,
       ease: Power0.easeNone }).
@@ -122,7 +122,7 @@ var Ripple = React.createClass({ displayName: "Ripple",
               classie.remove(page, "orange");
               TweenMax.set(greenDom, {
                 attr: {
-                  r: 32 } });
+                  r: 256 } });
 
 
             },
@@ -130,7 +130,7 @@ var Ripple = React.createClass({ displayName: "Ripple",
 
           to(dom, timeAnim / 2, {
             attr: {
-              r: 32 },
+              r: 256 },
 
             ease: Power3.easeOut });
 
@@ -141,8 +141,8 @@ var Ripple = React.createClass({ displayName: "Ripple",
   render: function () {
     return /*#__PURE__*/(
       React.createElement("svg", { height: "1", width: "1" }, /*#__PURE__*/
-      React.createElement("circle", { ref: "greenripple", id: "green_ripple", cx: "0", cy: "0", r: "32" }), /*#__PURE__*/
-      React.createElement("circle", { ref: "ripple", id: "white_ripple", cx: "0", cy: "0", r: "32" })));
+      React.createElement("circle", { ref: "greenripple", id: "green_ripple", cx: "0", cy: "0", r: "256" }), /*#__PURE__*/
+      React.createElement("circle", { ref: "ripple", id: "white_ripple", cx: "0", cy: "0", r: "256" })));
 
 
   } });
@@ -186,7 +186,7 @@ var Button = React.createClass({ displayName: "Button",
         ease: Power3.easeOut },
       "-=" + timeAnim / 3).
       to(self.state, 2 * timeAnim, {
-        progress: 10,
+        progress: 0,
         ease: Power0.easeNone,
         onUpdate: function (tween) {
           self.setState({
@@ -222,7 +222,7 @@ var Button = React.createClass({ displayName: "Button",
           self.setState({
             action: "play",
             point: "two",
-            progress: 0,
+            progress: 14,
             event: "" });
 
         },
@@ -242,7 +242,7 @@ var Button = React.createClass({ displayName: "Button",
           self.setState({
             action: "paused",
             point: "one",
-            progress: 0,
+            progress: 14,
             event: "" });
 
         } });
@@ -253,7 +253,7 @@ var Button = React.createClass({ displayName: "Button",
     return {
       action: "paused",
       point: "",
-      progress: 0,
+      progress: 14,
       event: "" };
 
   },
