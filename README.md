@@ -1,6 +1,7 @@
 # plantracker
 meal plan tracker for ucsb students
 
-hosted at firebase.google.com
-firebase deploy --only hosting:plantracker-ucsb
-https://plantracker-ucsb.web.app
+**hosting** https://firebase.google.com
+> firebase deploy --only hosting:plantracker-ucsb
+
+**accessible at** https://plantracker-ucsb.web.app
