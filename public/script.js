@@ -157,7 +157,7 @@ var Button = React.createClass({ displayName: "Button",
       this.setState({
         action: "play",
         point: "one",
-        progress: 0,
+        progress: 14,
         event: e.nativeEvent });
 
       var arrow = this.refs.arrow_icon.getDOMNode(),
