@@ -1,25 +1,15 @@
-
-
-/*=================================
-=            FUNCTIONS            =
-=================================*/
-// window size function
 function wndsize() {
   var w = 0;
   var h = 0;
-  //IE
   if (!window.innerWidth) {
     if (!(document.documentElement.clientWidth == 0)) {
-      //strict mode
       w = document.documentElement.clientWidth;
       h = document.documentElement.clientHeight;
     } else {
-      //quirks mode
       w = document.body.clientWidth;
       h = document.body.clientHeight;
     }
   } else {
-    //w3c
     w = window.innerWidth;
     h = window.innerHeight;
   }
@@ -29,23 +19,13 @@ function wndsize() {
 
 }
 
-// map function
 Number.prototype.map = function (in_min, in_max, out_min, out_max) {
   return (this - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 };
 
-/*=================================
-=            VARIABLES            =
-=================================*/
 var doc = document,
 page = doc.getElementById('page'),
 timeAnim = 0.75;
-
-
-/*========================================
-=            REACT COMPONENTS            =
-========================================*/
-
 
 var Ripple = React.createClass({ displayName: "Ripple",
   getInitialState: function () {
@@ -54,7 +34,6 @@ var Ripple = React.createClass({ displayName: "Ripple",
       y: "",
       w: wndsize().width,
       h: wndsize().height };
-
   },
   rippleAnim: function (event) {
 
@@ -72,37 +51,39 @@ var Ripple = React.createClass({ displayName: "Ripple",
     tl.
     to(dom, timeAnim, {
       attr: {
-        r: scale_ratio },
-
+        r: scale_ratio 
+      },
       ease: Power3.easeOut,
       onComplete: function () {
         classie.add(page, "orange");
-      } }).
+      } 
+    }).
 
     to(dom, 2 * timeAnim, {
       attr: {
-        r: 256 },
-
+        r: 256 
+      },
       delay: timeAnim / 3,
-      ease: Power0.easeNone }).
-
+      ease: Power0.easeNone 
+    }).
     to(greenDom, timeAnim / 2, {
       attr: {
-        r: scale_ratio },
-
+        r: scale_ratio 
+      },
       delay: timeAnim / 3,
-      ease: Power3.easeOut });
+      ease: Power3.easeOut 
+    });
 
   },
+
   componentWillReceiveProps: function (nextProps) {
     if (nextProps.activity === "play") {
-
       switch (nextProps.point) {
         case "one":
           this.setState({
             x: nextProps.event.pageX,
-            y: nextProps.event.pageY });
-
+            y: nextProps.event.pageY
+          });
           this.rippleAnim(nextProps.event);
           break;
         case "two":
@@ -114,43 +95,36 @@ var Ripple = React.createClass({ displayName: "Ripple",
           deltaX = this.state.w / 2 + offsetX,
           deltaY = this.state.h / 2 + offsetY,
           scale_ratio = Math.sqrt(Math.pow(deltaX, 2) + Math.pow(deltaY, 2));
-
           tl.
           to(dom, timeAnim, {
             attr: {
-              r: scale_ratio },
-
+              r: scale_ratio 
+            },
             onComplete: function () {
               classie.remove(page, "orange");
               TweenMax.set(greenDom, {
                 attr: {
-                  r: 256 } });
-
-
+                  r: 256 
+                } 
+              });
             },
             ease: Power3.easeOut }).
-
           to(dom, timeAnim / 2, {
             attr: {
-              r: 256 },
-
+              r: 256 
+            },
             ease: Power3.easeOut });
-
           break;}
-
     }
   },
   render: function () {
     return /*#__PURE__*/(
       React.createElement("svg", { height: "1", width: "1" }, /*#__PURE__*/
       React.createElement("circle", { ref: "greenripple", id: "green_ripple", cx: "0", cy: "0", r: "256" }), /*#__PURE__*/
-      React.createElement("circle", { ref: "ripple", id: "white_ripple", cx: "0", cy: "0", r: "256" })));
-
-
-  } });
-
-
-
+      React.createElement("circle", { ref: "ripple", id: "white_ripple", cx: "0", cy: "0", r: "256" }))
+      );
+  } 
+});
 
 var Button = React.createClass({ displayName: "Button",
   handleClick: function (e) {
@@ -160,23 +134,23 @@ var Button = React.createClass({ displayName: "Button",
         action: "play",
         point: "one",
         progress: 14,
-        event: e.nativeEvent });
-
+        event: e.nativeEvent 
+      });
       var arrow = this.refs.arrow_icon.getDOMNode(),
       done = this.refs.done_icon.getDOMNode(),
       progress = this.refs.progress.getDOMNode(),
       tl = new TimelineMax();
-
       tl.fromTo(arrow, timeAnim, {
         yPercent: 0,
         autoAlpha: 1,
-        scale: 1 },
+        scale: 1 
+      },
       {
         yPercent: 20,
         autoAlpha: 0,
         //delay: timeAnim/3,
-        ease: Power3.easeOut }).
-
+        ease: Power3.easeOut 
+      }).
       fromTo(progress, 2 * timeAnim / 3, {
         yPercent: -20,
         autoAlpha: 0,
@@ -225,15 +199,16 @@ var Button = React.createClass({ displayName: "Button",
             action: "play",
             point: "two",
             progress: 14,
-            event: "" });
-
+            event: "" 
+          });
         },
         ease: Power3.easeOut }).
 
       fromTo(arrow, 2 * timeAnim / 3, {
         yPercent: -20,
         scale: 0.6,
-        autoAlpha: 0 },
+        autoAlpha: 0 
+      },
       {
         yPercent: 0,
         scale: 1,
@@ -245,8 +220,8 @@ var Button = React.createClass({ displayName: "Button",
             action: "paused",
             point: "one",
             progress: 14,
-            event: "" });
-
+            event: "" 
+          });
         } });
 
     }
@@ -260,18 +235,16 @@ var Button = React.createClass({ displayName: "Button",
 
   },
   render: function () {
-    return /*#__PURE__*/(
-      React.createElement("div", { className: "material_button", onClick: this.handleClick }, /*#__PURE__*/
-      React.createElement("i", { ref: "done_icon", className: "material-icons done" }, "done"), /*#__PURE__*/
-      React.createElement("div", { ref: "progress", className: "progress" }, this.state.progress), /*#__PURE__*/
-      React.createElement("i", { ref: "arrow_icon", className: "material-icons" }, "arrow_downward"), /*#__PURE__*/
-      React.createElement(Ripple, { activity: this.state.action, event: this.state.event, point: this.state.point })));
-
-
+    return (
+      React.createElement("div", { className: "material_button", onClick: this.handleClick }, 
+      React.createElement("i", { ref: "done_icon", className: "material-icons done" }, "done"), 
+      React.createElement("div", { ref: "progress", className: "progress" }, this.state.progress), 
+      React.createElement("i", { ref: "arrow_icon", className: "material-icons" }, "arrow_downward"), 
+      React.createElement(Ripple, { activity: this.state.action, event: this.state.event, point: this.state.point }))
+      );
   } });
 
-
-
-React.render( /*#__PURE__*/
-React.createElement(Button, null),
-page);
+React.render( 
+  React.createElement(Button, null),
+  page)
+  ;
