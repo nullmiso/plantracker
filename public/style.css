@@ -1,10 +1,6 @@
-/*===============================
-=            GENERAL            =
-===============================*/
-/*----------  FONTS  ----------*/
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic&subset=latin,greek");
 @import url("https://fonts.googleapis.com/css?family=Roboto+Mono:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic");
-/*----------  VARIABLES  ----------*/
+
 html,
 body {
   display: flex;
@@ -15,7 +11,6 @@ body {
 }
 
 body {
-  
   font-family: 'Roboto', sans-serif;
   font-size: 100%;
   color: #1f2e3e;
@@ -133,7 +128,6 @@ main {
   padding-left: 100px;
   padding-right: 100px;
   padding-bottom: 64px;
-
 }
 
 footer {
